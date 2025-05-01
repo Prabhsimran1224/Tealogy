@@ -1,493 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tealogy</title>
+    
+    <!-- Bootstrap & FontAwesome -->
     <link rel="stylesheet" href="../web folder/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../web folder/fontawesome-free-6.7.2-web/css/all.css">
+    
+    <!-- Scripts -->
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="../web folder/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+    
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-  
+    <style>
+        .custom-tooltip .tooltip-inner {
+            background-color: burlywood;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .custom-tooltip.bs-tooltip-left .tooltip-arrow::before {
+            border-left-color: burlywood;
+        }
+        .custom-popover {
+            max-width: 300px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .custom-popover .popover-header {
+            background-color: burlywood;
+            color: white;
+            font-weight: 600;
+        }
+        .custom-popover .popover-body {
+            padding: 15px;
+            color: #5a5c69;
+        }
+    </style>
 </head>
 
 <body>
-
-<header>
-    
-    <div class="btn-toolbar">
-        <div>
-            <div class="btn-group">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false"> Home </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
-                    <li><a class="dropdown-item" href="hotbeverages.html">HOT BEVERAGE</a></li>
-                    <li><a class="dropdown-item" href="coldbeverages.html">COLD BEVERAGES</a></li>
-                    <li><a class="dropdown-item" href="snacks.html">SNACKS</a></li>
-                    <li><a class="dropdown-item" href="mexican.html">MEXICAN</a></li>
-                    <li><a class="dropdown-item" href="#">COMBO'S</a></li>
-                </ul>
-            </div> 
-            <a href="process.html">
-                <button class="btn btn-dark">
-                    <i class="fa-solid fa-mug-saucer"></i> Process
-                </button>
-            </a>
-
-            <a href="specials.html" class="btn btn-dark position-relative shadow"><span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger">4</span>
-                <i class="fa-solid fa-utensils"></i> Specials
-                
-            </a>
+<header class="p-3 bg-light shadow-sm">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Home</button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="hotbeverages.html">HOT BEVERAGE</a></li>
+                <li><a class="dropdown-item" href="coldbeverages.html">COLD BEVERAGES</a></li>
+                <li><a class="dropdown-item" href="snacks.html">SNACKS</a></li>
+                <li><a class="dropdown-item" href="mexican.html">MEXICAN</a></li>
+                <li><a class="dropdown-item" href="#">COMBO'S</a></li>
+            </ul>
         </div>
-        <h1 id="topic">Tealogy &nbsp;<i class="fa-solid fa-mug-hot"></i></h1>
-        <!----tool tip-->
-        <div>
-              <div style="display: flex ;justify-content: space-between;">
-                <a class="nav-link learn-more-btn btn-header" href="#about" data-bs-toggle="tooltip"
-                data-bs-placement="left" data-bs-custom-class="custom-tooltip"
-                title=" search here as per your requirement"><input style="width:200px;" type="text" class="form-control" id="queryType" list="queryList" placeholder="Search here">
-                
-              </a>
-                <datalist id="queryList">
-                    <option value="Mexican ">
-                    <option value="Hot beverages " >
-                    <option value="Combo">
-                    <option value="Cold beverages">
-                    <option value="Snacks ">
-                    <option value="Special deals">
-                    
-                </datalist>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Login
-            </button>
-        </div>
+        <a href="process.html" class="btn btn-dark"><i class="fa-solid fa-mug-saucer"></i> Process</a>
+
+        <a href="specials.html" class="btn btn-dark position-relative shadow">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger">4</span>
+            <i class="fa-solid fa-utensils"></i> Specials
+        </a>
+
+        <h1 id="topic" class="mx-3">Tealogy <i class="fa-solid fa-mug-hot"></i></h1>
+
+        <div class="d-flex align-items-center">
+            <input type="text" class="form-control me-2" id="queryType" list="queryList" placeholder="Search here" data-bs-toggle="tooltip" title="Search here as per your requirement">
+            <datalist id="queryList">
+                <option value="Mexican">
+                <option value="Hot beverages">
+                <option value="Combo">
+                <option value="Cold beverages">
+                <option value="Snacks">
+                <option value="Special deals">
+            </datalist>
+
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
         </div>
     </div>
 </header>
-<style>
-  .custom-tooltip .tooltip-inner {
-    background-color: burlywood;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
 
-  .custom-tooltip.bs-tooltip-left .tooltip-arrow::before {
-    border-left-color: burlywood;
-  }
-
-  .learn-more-btn-section {
-    display: inline-block;
-  }
-</style>
+<!-- Tooltip Init -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Initialize tooltips
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl);
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (el) {
+            return new bootstrap.Tooltip(el);
+        });
     });
-  });
 </script>
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <form class="modal-content" id="login-form">
             <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body p-4">
-                <div id="login-message"></div> <!-- Success/Error message will appear here -->
-                <form id="login-form">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <a href="#" class="text-primary forgot-link">Forgot Password?</a>
-                    </div>
-                    <div class="alert alert-info alert-dismissible fade show text-start" role="alert">
-                      <strong>Note: </strong>Please fill the details carefully
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                    
-                </form>
+            <div class="modal-body">
+                <div id="login-message"></div>
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="email" required />
+                </div>
+                <div class="mb-3">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" required />
+                </div>
+                <div class="alert alert-info">Note: Please fill the details carefully</div>
             </div>
-        </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
     </div>
 </div>
 
 <script>
-    document.getElementById("login-form").addEventListener("submit", function(event) {
-        event.preventDefault(); 
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const messageBox = document.getElementById("login-message");
 
-      
-        const correctEmail = "prabhsimrankaur069@gmail.com";
-        const correctPassword = "password123";
-
-        
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
-        let messageBox = document.getElementById("login-message");
-
-        
-        if (email === correctEmail && password === correctPassword) {
+        if (email === "prabhsimrankaur069@gmail.com" && password === "password123") {
             messageBox.innerHTML = `<div class="alert alert-success">Login Successful!</div>`;
             setTimeout(() => {
-                messageBox.innerHTML = ""; // Clear message after 2 seconds
-                document.getElementById("loginModal").classList.remove("show"); // Hide modal
-                document.body.classList.remove("modal-open");
-                document.querySelector(".modal-backdrop").remove();
-            }, 2000);
+                const modal = bootstrap.Modal.getInstance(document.getElementById("loginModal"));
+                modal.hide();
+            }, 1500);
         } else {
             messageBox.innerHTML = `<div class="alert alert-danger">Invalid Email or Password!</div>`;
         }
     });
 </script>
-<div class="container mt-3">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active"  aria-current="page">Home
-                </li>
-            <li class="breadcrumb-item"><a href="tealogy table.html">specials</a></li>
-            
-        </ol>
-    </nav>
-  </div>
-  <div class="row justify-content-center mb-5">
-    <div class="col-lg-10">
-      <div id="specialsCarousel" class="carousel slide" data-bs-ride="carousel">
-        
-        <!-- Pagination (carousel indicators) -->
+
+<!-- Carousel -->
+<div class="container mt-4">
+    <div id="specialsCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#specialsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#specialsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#specialsCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#specialsCarousel" data-bs-slide-to="1"></button>
         </div>
-  
-        <div class="carousel-inner rounded-4 overflow-hidden shadow-lg">
-  
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="special-banner position-relative text-white d-flex align-items-center" style="background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('images/spring-cleaning.jpg') center/cover no-repeat; height: 350px;">
-              <div class="container py-4 px-5">
-                <div class="row align-items-center">
-                  <!-- Text content -->
-                  <div class="col-md-7">
-                    <h2 class="mb-2 fw-bold">Summer offer</h2>
-                    <p class="mb-1 fs-5">✨ 20% off on all Shakes this season ✨</p>
-                    <p class="display-4 fw-bold">₹170<small class="fs-5">/mo</small></p>
-                    <button class="btn btn-light btn-lg mt-2 shadow-sm">Claim Offer</button>
-                  </div>
-          
-                  <!-- Image on side -->
-                  <div class="col-md-5 text-center">
-                    <img src="C:\Users\prabh\OneDrive\Desktop\Caramel-Milkshake-3 (1).jpg" class="img-fluid rounded shadow" alt="Milkshake" style="max-height: 200px;">
-                  </div>
+        <div class="carousel-inner rounded-4 shadow-lg">
+            <div class="carousel-item active">
+                <div class="d-flex align-items-center bg-dark text-white" style="height: 350px;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-7">
+                                <h2>Summer Offer</h2>
+                                <p>✨ 20% off on all Shakes ✨</p>
+                                <h3>₹170 <small>/mo</small></h3>
+                                <button class="btn btn-light">Claim Offer</button>
+                            </div>
+                            <div class="col-md-5">
+                                <img src="images/milkshake.jpg" class="img-fluid rounded shadow" alt="Milkshake">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          
-  
-          <!-- Slide 2 -->
-         
-          <div class="carousel-item active">
-            <div class="special-banner position-relative text-white d-flex align-items-center" style="background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('images/spring-cleaning.jpg') center/cover no-repeat; height: 350px;">
-              <div class="container py-4 px-5">
-                <div class="row align-items-center">
-                  <!-- Text content -->
-                  <div class="col-md-7">
-                    <h2 class="mb-2 fw-bold">Special combo</h2>
-                    <p class="mb-1 fs-5">✨ Grab the deal ✨</p>
-                    <p class="display-4 fw-bold">₹189<small class="fs-5">/mo</small></p>
-                    <button class="btn btn-light btn-lg mt-2 shadow-sm">Claim Offer</button>
-                  </div>
-          
-                  <!-- Image on side -->
-                  <div class="col-md-5 text-center">
-                    <img src="C:\Users\prabh\OneDrive\Desktop\OIP.jpg" class="img-fluid rounded shadow" alt="Milkshake" style="max-height: 200px;">
-                  </div>
+            <div class="carousel-item">
+                <div class="d-flex align-items-center bg-dark text-white" style="height: 350px;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-7">
+                                <h2>Special Combo</h2>
+                                <p>✨ Grab the deal ✨</p>
+                                <h3>₹189 <small>/mo</small></h3>
+                                <button class="btn btn-light">Claim Offer</button>
+                            </div>
+                            <div class="col-md-5">
+                                <img src="images/combo.jpg" class="img-fluid rounded shadow" alt="Combo">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-  
         </div>
-  
-        <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#specialsCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#specialsCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon"></span>
         </button>
-      </div>
     </div>
-  </div>
+</div>
 
-<div id="recipe">
-    <a href="recipes.html" class="text-decoration-none">
-        <p style="color: #8b3323;">Recipe of the Day</p>
-        <div class="container image-container">
-            <video class="styled-video" width="1050px" height="250px" controls>
-                <source src="C:\Users\prabh\Downloads\WhatsApp Video 2025-02-22 at 5.53.22 PM.mp4" type="video/mp4">
-                
-            </video>
-        </div>
+<!-- Recipe Video Section -->
+<div class="container mt-5">
+    <p style="color: #8b3323;">Recipe of the Day</p>
+    <video width="100%" height="250" controls>
+        <source src="videos/recipe.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
 
-        
-        <!-- Bootstrap Navigation Tabs -->
-<ul class="nav nav-tabs justify-content-center">
+<!-- Feedback Section with Spinner -->
+<ul class="nav nav-tabs justify-content-center mt-4">
     <li class="nav-item">
         <a href="#Feedback" data-bs-toggle="tab" class="nav-link" id="feedbackTab">
-            <button id="showspinnerbtn" class="btn btn-link bg-warning" type="button">Feedback</button>
+            <button id="showspinnerbtn" class="btn bg-warning">Feedback</button>
         </a>
     </li>
 </ul>
 
-<!-- Spinner (hidden initially) -->
 <div id="spinner" class="mt-4 text-center" style="display: none;">
     <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
 
-<!-- Tab Content -->
-<div class="tab-content" id="topics">
+<div class="tab-content p-3" id="topics">
     <div class="tab-pane fade" id="Feedback">
-        <div class="mt-3">
-            <h3 style="color:black">Your Feedback</h3>
-            <form>
-                <div class="mb-3">
-                    <label class="form-label" style="color:black">Rate your experience</label><br>
-                    <i class="fa-solid fa-face-grin-hearts"></i>
-                    <input type="radio" name="feedbackRating" value="veryHappy">
-                    <i class="fa-solid fa-face-smile"></i>
-                    <input type="radio" name="feedbackRating" value="happy">
-                    <i class="fa-solid fa-face-meh"></i>
-                    <input type="radio" name="feedbackRating" value="neutral">
-                    <i class="fa-solid fa-face-sad-tear"></i>
-                    <input type="radio" name="feedbackRating" value="sad">
-                </div>
-                <button type="submit" class="btn bg-warning">Submit</button>
-            </form>
-        </div>
+        <h3>Your Feedback</h3>
+        <form>
+            <label>Rate your experience</label><br />
+            <i class="fa-solid fa-face-grin-hearts"></i>
+            <input type="radio" name="feedbackRating" value="veryHappy">
+            <i class="fa-solid fa-face-smile"></i>
+            <input type="radio" name="feedbackRating" value="happy">
+            <i class="fa-solid fa-face-meh"></i>
+            <input type="radio" name="feedbackRating" value="neutral">
+            <i class="fa-solid fa-face-sad-tear"></i>
+            <input type="radio" name="feedbackRating" value="sad">
+            <button class="btn bg-warning d-block mt-2">Submit</button>
+        </form>
     </div>
 </div>
 
-<!-- JavaScript -->
 <script>
     document.getElementById("showspinnerbtn").addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent immediate tab switch
-
-        let spinner = document.getElementById("spinner");
-        let feedbackTab = document.getElementById("feedbackTab");
-
-        spinner.style.display = "block"; // Show spinner
-        document.getElementById("Feedback").classList.remove("show", "active"); // Hide tab content initially
-
+        event.preventDefault();
+        document.getElementById("spinner").style.display = "block";
         setTimeout(() => {
-            spinner.style.display = "none"; // Hide spinner
-            document.getElementById("Feedback").classList.add("show", "active"); // Show feedback form
-            feedbackTab.click(); // Manually trigger tab switch
+            document.getElementById("spinner").style.display = "none";
+            new bootstrap.Tab(document.querySelector('#feedbackTab')).show();
         }, 3000);
     });
 </script>
 
-  
+<!-- Help Popover -->
+<div class="text-center mt-4">
+    <button type="button" class="btn btn-primary btn-popover" data-bs-toggle="popover"
+        data-bs-trigger="hover focus" data-bs-title="<i class='fas fa-rocket me-2'></i> Need Help!"
+        data-bs-content="<div class='popover-content'><p>Get advice!</p><ul class='popover-list'><li>Call: 01800-3406</li><li>15-minute call</li><li>Personalized solutions</li></ul>">
+        <i class="fas fa-rocket me-2"></i> Need Help
+    </button>
 </div>
-<button type="button" class="btn btn-primary btn-popover" data-bs-toggle="popover"
-              data-bs-trigger="hover focus" data-bs-custom-class="custom-popover"
-              data-bs-title="<i class='fas fa-rocket me-2'></i> Need Help!"
-              data-bs-content="<div class='popover-content'><p>Get advice !</p><ul class='popover-list'><li>call-01800-3406</li><li>15-minute call</li><li>Personalized solutions</li></ul></div>">
-              <i class="fas fa-rocket me-2"></i> Need Help
-            </button>
-            <style>
-                /* Custom Popover Styling */
-                .custom-popover {
-                  max-width: 300px;
-                  border: none;
-                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                  border-radius: 10px;
-                }
-  
-                .custom-popover .popover-header {
-                  background-color:burlywood;
-                  color: white;
-                  font-weight: 600;
-                  border-top-left-radius: 10px;
-                  border-top-right-radius: 10px;
-                  border-bottom: none;
-                  padding: 12px 15px;
-                }
-  
-                .custom-popover .popover-body {
-                  padding: 15px;
-                  color: #5a5c69;
-                }
-  
-                .popover-content {
-                  font-size: 14px;
-                }
-  
-                .popover-list {
-                  padding-left: 20px;
-                  margin: 10px 0;
-                }
-  
-                .popover-list li {
-                  margin-bottom: 5px;
-                }
-  
-                .btn-popover-action {
-                  background-color: #4e73df;
-                  color: white;
-                  border: none;
-                  width: 100%;
-                  transition: all 0.3s;
-                }
-  
-                .btn-popover-action:hover {
-                  background-color: #2e59d9;
-                  transform: translateY(-2px);
-                }
-  
-                .btn-popover {
-                  position: relative;
-                  overflow: hidden;
-                  transition: all 0.3s;
-                }
-  
-                .btn-popover:hover {
-                  transform: translateY(-3px);
-                  box-shadow: 0 5px 15px rgba(78, 115, 223, 0.3);
-                }
-              </style>
-              <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                  // Initialize popovers with custom options
-                  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-  
-                  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                    return new bootstrap.Popover(popoverTriggerEl, {
-                      html: true,
-                      placement: 'right',
-                      offset: [0, 15]
-                    });
-                  });
-  
-                  // Add animation to popover show/hide
-                  document.querySelectorAll('.custom-popover').forEach(popover => {
-                    popover.style.transition = 'opacity 0.3s, transform 0.3s';
-                  });
-                });
-              </script>
 
-<div id="explore">
-    <p>Explore More</p>
-    <div class="card-group">
-      <div class="container mt-4">
-          <div class="row g-4">
-            
-              <div class="col-md-4">
-                  <a href="hotbeverages.html" class="text-decoration-none">
-                      <div class="card text-center shadow-lg rounded-3 hover-shadow-sm">
-                          <img src="https://th.bing.com/th/id/OIP.Ls3pxlvKZ2FlhodnRkHiLgHaFJ?pid=ImgDet&w=178&h=123&c=7&dpr=1.5" class="card-img-top rounded-circle mx-auto mt-3" alt="Image" style="width: 150px; height: 150px;">
-                          <div class="card-body">
-                              <h5 class="card-title">HOT BEVERAGE</h5>
-                              <p class="card-text">"Chill, Sip, Refresh!"</p>
-                          </div>
-                      </div>
-                  </a>
-              </div>
-              <div class="col-md-4">
-                  <a href="coldbeverages.html" class="text-decoration-none">
-                      <div class="card text-center shadow-lg rounded-3 hover-shadow-sm">
-                          <img src="https://th.bing.com/th/id/OIP.K9a79RBVvB_Hr15LwBdDhQHaLG?pid=ImgDet&w=178&h=267&c=7&dpr=1.5" class="card-img-top rounded-circle mx-auto mt-3" alt="Image" style="width: 150px; height: 150px;">
-                          <div class="card-body">
-                              <h5 class="card-title">COLD BEVERAGES</h5>
-                              <p class="card-text">"Warm Up, Feel Good!"</p>
-                          </div>
-                      </div>
-                  </a>
-              </div>
-              <div class="col-md-4">
-                  <a href="snacks.html" class="text-decoration-none">
-                      <div class="card text-center shadow-lg rounded-3 hover-shadow-sm">
-                          <img src="https://th.bing.com/th/id/OIP.mvp6hquytddcJjoxkd96ewHaE8?w=306&h=204&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto mt-3" alt="Image" style="width: 150px; height: 150px;">
-                          <div class="card-body">
-                              <h5 class="card-title">SNACKS</h5>
-                              <p class="card-text">"Crunch, Munch!"</p>
-                          </div>
-                      </div>
-                  </a>
-              </div>
-              <div class="col-md-4">
-                  <a href="mexican.html" class="text-decoration-none">
-                      <div class="card text-center shadow-lg rounded-3 hover-shadow-sm">
-                          <img src="https://th.bing.com/th/id/OIP.Kfy-rLeUMHOw9JZ2tPTj2AHaFb?w=277&h=201&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto mt-3" alt="Image" style="width: 150px; height: 150px;">
-                          <div class="card-body">
-                              <h5 class="card-title">MEXICAN</h5>
-                              <p class="card-text">"Taste the Fiesta in Every Bite!"</p>
-                          </div>
-                      </div>
-                  </a>
-              </div>
-              <div class="col-md-4">
-                  <a href="hotbeverages.html" class="text-decoration-none">
-                      <div class="card text-center shadow-lg rounded-3 hover-shadow-sm">
-                          <img src="https://th.bing.com/th/id/OIP.hYzABJPE8toP4SdTPv_E7AHaFj?rs=1&pid=ImgDetMain" class="card-img-top rounded-circle mx-auto mt-3" alt="Image" style="width: 150px; height: 150px;">
-                          <div class="card-body">
-                              <h5 class="card-title">COMBO'S</h5>
-                              <p class="card-text">"Perfect Pairings, Ultimate Flavor!"</p>
-                          </div>
-                      </div>
-                  </a>
-              </div>
-              <div class="col-md-4">
-                  <a href="hotbeverages.html" class="text-decoration-none">
-                      <div class="card text-center shadow-lg rounded-3 hover-shadow-sm">
-                          <img src="https://i.pinimg.com/736x/31/71/2a/31712a84673cd22aa2e2680b0eb8c835.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Image" style="width: 150px; height: 150px;">
-                          <div class="card-body">
-                              <h5 class="card-title">SPECIAL DEALS</h5>
-                              <p class="card-text">"Unbeatable Deals, Irresistible Taste!"</p>
-                          </div>
-                      </div>
-                  </a>
-              </div>
-          </div>
-      </div>
-  </div>
-  <nav class="mt-4">
-    <ul class="pagination justify-content-center">
-        <li class="page-item disabled"> <a class="page-link">Previous</a></li>
-        <li class="page-item active"> <a class="page-link" href="#">1</a></li>
-        <li class="page-item "> <a class="page-link" href="tealogy table.html">2</a></li>
-        <li class="page-item "> <a class="page-link" href="Mexican.html">3</a></li>
-        <li class="page-item "> <a class="page-link" href="#">Next</a></li>
-    </ul>
-</nav>
-  
-
-<footer>
-   <p>&copy; 2025 Tealogy. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
-  
-  
-   
-</footer>
-<div class="container  ">
-  
-    
-  </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl, {
+                html: true,
+                placement: 'right',
+                offset: [0, 15]
+            });
+        });
+    });
+</script>
 </body>
 </html>
