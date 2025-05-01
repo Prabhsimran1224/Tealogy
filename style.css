@@ -1,0 +1,119 @@
+<style>
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Gradient Header Styling */
+header {
+  background: linear-gradient(135deg, #6F4F37, #3E2723);
+  /* Gradient color for header */
+    height: 80px; /* Reduced the header height */
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px 20px; /* Adjusted padding */
+}
+
+/* Header Text Style */
+#topic {
+    font-size: 40px; /* Reduced font size */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 0; /* Remove margin */
+}
+
+/* Button Toolbar Styling */
+.btn-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.btn {
+    background-color: #333;
+    color: white;
+    font-size: 14px; /* Reduced font size */
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+body {
+background-color: #D2B48C; /* Light brownish shade (Tan) */
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+/* Recipe and Explore Section Styling */
+#recipe, #explore {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #8b3323;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+
+
+/* Card Slogan Text Style */
+.card-text {
+    font-size: 12px; /* Reduced the size of the slogan text */
+    color: #555;
+    font-weight: normal;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #topic {
+        font-size: 30px; /* Further reduced font size on mobile */
+    }
+
+    .btn-toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+/* Gradient Footer Styling */
+footer {
+    background: linear-gradient(135deg, #6F4F37, #3E2723);
+; /* Gradient color for footer */
+    color: white;
+    height: 80px; /* Same height as header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+</style>
